@@ -1,7 +1,7 @@
-/*!
+/*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2020, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,24 +28,9 @@
  * @licence Simplified BSD License
  */
 
-//
-// This is the client base stylesheet.
-// This is where you add all your dependent styles and override any
-// OS.js defaults.
-//
+import './index.scss';
+import osjs from 'osjs';
+import {name} from './metadata.json';
+import {register} from './src/base/src/theme.js';
 
-@import "~typeface-roboto/index.css";
-@import "~@osjs/client/dist/main.css";
-@import "~@osjs/gui/dist/main.css";
-@import "~@osjs/dialogs/dist/main.css";
-@import "~@osjs/panels/dist/main.css";
-
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-body,
-html {
-  font-family: 'Raleway', sans-serif;
-  width: 100%;
-  height: 100%;
-}
+osjs.register(name, register);
