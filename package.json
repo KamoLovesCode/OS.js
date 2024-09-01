@@ -46,11 +46,9 @@
     "@osjs/preview-application": "^1.1.17",
     "@osjs/server": "^3.2.3",
     "@osjs/settings-application": "^1.1.8",
-    "@osjs/standard-dark-theme": "^4.0.11",
     "@osjs/standard-theme": "^4.0.9",
     "@osjs/textpad-application": "^1.2.7",
     "hyperapp": "^1.2.10",
-    "nodemon": "^3.1.4",
     "typeface-roboto": "0.0.75"
   },
   "repository": {
