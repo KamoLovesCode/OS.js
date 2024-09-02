@@ -20,7 +20,7 @@
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch",
     "vercel-build": "npm run package:discover && npm run build",
-    "start": "node dist/server/index.js"
+    "start": "node src/server/index.js"
   },
   "keywords": [
     "osjs"
