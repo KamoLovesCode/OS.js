@@ -40,10 +40,5 @@ const root = path.resolve(__dirname, '../../');
 module.exports = {
   root,
   port: 8000,
-  public: path.resolve(root, 'dist'),
-  session: {
-    options: {
-      secret: 'kamo',  // Replace with a strong session secret
-    },
-  },
+  public: path.resolve(root, 'dist')
 };
