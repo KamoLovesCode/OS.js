@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
 /*!
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
@@ -27,5 +28,673 @@
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  * @licence Simplified BSD License
  */
+/*!
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) 2011-2020, Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+body, html, .osjs-root {
+  font-family: "Montserrat" !important;
+  bottom: 0;
+  color: #fff;
+  background-color: #000000;
+  opacity: 1;
+  background-image: linear-gradient(30deg, #ff0016 12%, transparent 12.5%, transparent 87%, #ff0016 87.5%, #ff0016), linear-gradient(150deg, #ff0016 12%, transparent 12.5%, transparent 87%, #ff0016 87.5%, #ff0016), linear-gradient(30deg, #ff0016 12%, transparent 12.5%, transparent 87%, #ff0016 87.5%, #ff0016), linear-gradient(150deg, #ff0016 12%, transparent 12.5%, transparent 87%, #ff0016 87.5%, #ff0016), linear-gradient(60deg, rgba(255, 0, 22, 0.4666666667) 25%, transparent 25.5%, transparent 75%, rgba(255, 0, 22, 0.4666666667) 75%, rgba(255, 0, 22, 0.4666666667)), linear-gradient(60deg, rgba(255, 0, 22, 0.4666666667) 25%, transparent 25.5%, transparent 75%, rgba(255, 0, 22, 0.4666666667) 75%, rgba(255, 0, 22, 0.4666666667));
+  background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+}
+
+.osjs-panel-item[data-name=menu] > div > img {
+  content: url(f71e9cb8f5e03fd2df607488724e337e.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: invert(100%) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 16px;
+  margin: auto;
+}
+
+.osjs-panel-item[data-name=menu]:hover {
+  filter: invert(0%);
+}
+
+.osjs-panel:hover .osjs-panel-item[data-name=menu] > div > img {
+  filter: invert(0%);
+}
+
+.osjs-panel-item[data-name=menu] > div > span {
+  display: none;
+}
+
+.osjs-panel-item[data-name=tray] > div > img {
+  content: url("https://fonts.gstatic.com/s/i/materialiconsoutlined/search/v1/24px.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: invert(100%);
+}
+
+.osjs-panel-item[data-name=tray] > div > img:hover {
+  filter: invert(0%);
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+  height: 1em;
+}
+
+::-webkit-scrollbar-button {
+  background: linear-gradient(180deg, #1a1a1a 0, #000000);
+  color: #d9d9d9;
+  width: 1em;
+  height: 1em;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid #000000;
+  background: linear-gradient(180deg, #1a1a1a 0, #000000);
+}
+
+::-webkit-resizer,
+::-webkit-scrollbar-corner {
+  background: #1a1a1a;
+}
+
+.osjs-gui-button > button {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.osjs-gui-button > button:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-button > button:disabled {
+  opacity: 0.8;
+}
+
+.osjs-gui-button > button:active,
+.osjs-gui-button > button[active=true] {
+  border: 1px solid #333;
+  background: #1a1a1a;
+  outline: 0 none;
+}
+
+.osjs-gui-button > button:disabled {
+  color: #fff;
+}
+
+.osjs-gui-field input,
+.osjs-gui-field select,
+.osjs-gui-field textarea,
+.osjs-gui-input input,
+.osjs-gui-input select,
+.osjs-gui-input textarea {
+  border: 1px solid #000000;
+  background: #333;
+  color: #fff;
+  font-size: inherit;
+  font-family: Roboto, sans-serif;
+}
+
+.osjs-gui-field input:focus,
+.osjs-gui-field select:focus,
+.osjs-gui-field textarea:focus,
+.osjs-gui-input input:focus,
+.osjs-gui-input select:focus,
+.osjs-gui-input textarea:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-field input:disabled,
+.osjs-gui-field select:disabled,
+.osjs-gui-field textarea:disabled,
+.osjs-gui-input input:disabled,
+.osjs-gui-input select:disabled,
+.osjs-gui-input textarea:disabled {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.osjs-gui-tabs-header > div {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+}
+
+.osjs-gui-tabs-header > div.osjs__active {
+  border-bottom-color: #1a1a1a;
+  background-color: transparent;
+}
+
+.osjs-gui-tabs-panes {
+  margin-top: -1px;
+}
+
+.osjs-gui-tabs-panes > div {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+}
+
+.osjs-gui-tabs-panes > div.osjs__active {
+  background-color: transparent;
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before:disabled {
+  opacity: 0.8;
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before:active,
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before[active=true] {
+  border: 1px solid #333;
+  background: #1a1a1a;
+  outline: 0 none;
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:before:disabled {
+  color: #fff;
+}
+
+.osjs-gui-toggle-field > label > span.osjs-toggle-input:after {
+  margin: 1px;
+}
+
+.osjs-gui-toggle-field > label > input[type=radio] + span.osjs-toggle-input:before {
+  border-radius: 100%;
+}
+
+.osjs-gui-range-field > input[type=range] {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  height: 2em;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.osjs-gui-range-field > input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5em;
+  background: #1a1a1a;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.osjs-gui-range-field > input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #000000;
+  height: 1em;
+  width: 1em;
+  border-radius: 0;
+  background: #1a1a1a;
+  margin-top: -0.25em;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.osjs-gui-range-field > input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.5em;
+  background: #1a1a1a;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.osjs-gui-range-field > input[type=range]::-moz-range-thumb {
+  border: 1px solid #000000;
+  height: 1em;
+  width: 1em;
+  border-radius: 0;
+  background: #1a1a1a;
+  margin-top: -0.25em;
+  cursor: pointer;
+}
+
+.osjs-gui-range-field > input[type=range]::-ms-track {
+  width: 100%;
+  height: 0.5em;
+  background: #1a1a1a;
+  border-radius: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0 transparent;
+  color: transparent;
+}
+
+.osjs-gui-range-field > input[type=range]::-ms-fill-lower,
+.osjs-gui-range-field > input[type=range]::-ms-fill-upper {
+  background: #1a1a1a;
+  border: 1px solid #000000;
+  border-radius: 0;
+}
+
+.osjs-gui-range-field > input[type=range]::-ms-thumb {
+  border: 1px solid #000000;
+  height: 1em;
+  width: 1em;
+  border-radius: 0;
+  background: #1a1a1a;
+  margin-top: -0.25em;
+  cursor: pointer;
+}
+
+.osjs-gui-icon-view-wrapper {
+  border: 1px solid #000000;
+  background: #333;
+  color: #fff;
+}
+
+.osjs-gui-icon-view-wrapper:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-icon-view-wrapper:disabled {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.osjs-gui-icon-view-wrapper .osjs__active .osjs__image,
+.osjs-gui-icon-view-wrapper .osjs__active .osjs__label {
+  background: rgba(45, 115, 210, 0.2);
+  color: #fff;
+}
+
+.osjs-gui-menu ul {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.osjs-gui-menu li:hover > div > span {
+  background-color: #fff;
+  color: #000;
+}
+
+.osjs-gui-menu .osjs__disabled {
+  opacity: 0.5;
+}
+
+.osjs-gui-menubar > div {
+  cursor: pointer;
+}
+
+.osjs-gui-menubar > div:hover {
+  background-color: rgba(45, 115, 210, 0.2);
+  color: #fff;
+}
+
+.osjs-notification {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.osjs-notification .osjs-notification-title {
+  font-weight: 700;
+}
+
+.osjs-notification .osjs-notification-message {
+  margin-top: 1em;
+}
+
+.osjs-gui-progressbar-wrapper {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.osjs-gui-progressbar-value {
+  background: rgba(0, 0, 200, 0.5);
+}
+
+.osjs-gui-list-view .osjs__active {
+  background: rgba(45, 115, 210, 0.2);
+  color: #fff;
+}
+
+.osjs-gui-list-view .rows:not([data-zebra=false]) > div:nth-child(odd):not(.osjs__active) {
+  background-color: #5a5a5a;
+}
+
+.osjs-gui-list-view-wrapper {
+  border: 1px solid #000000;
+  background: #333;
+  color: #fff;
+}
+
+.osjs-gui-list-view-wrapper:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-list-view-wrapper:disabled {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.osjs-gui-list-view-header {
+  background: #1a1a1a;
+  border: 0;
+}
+
+.osjs-gui-box-styled {
+  border: 1px solid #000000;
+  background: #333;
+  color: #fff;
+}
+
+.osjs-gui-box-styled:focus {
+  outline: 1px solid rgba(0, 0, 200, 0.2);
+}
+
+.osjs-gui-box-styled:disabled {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.osjs-gui-expander-header {
+  background: #1a1a1a;
+  border: 0;
+}
+
+.osjs-window[data-minimized=true] {
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.osjs-window[data-minimized=false] {
+  display: block;
+}
+
+.osjs-panel-item[data-name=windows] > div,
+.osjs-window:not([data-moving=true]):not([data-resizing=true]) {
+  transition: all 0.1s ease-in-out;
+}
+
+.osjs-window-button > div:after,
+.osjs-window-button > div:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+.osjs-window-button > div:before {
+  background: #bababa;
+  background: linear-gradient(180deg, #bababa 0, #d9d9d9);
+  z-index: 1;
+}
+
+.osjs-window-button > div:after {
+  border: 1px solid hsla(0, 0%, 40%, 0.5);
+  z-index: 2;
+}
+
+.osjs-window {
+  border: 1px solid #000000;
+  background: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.osjs-window[data-focused=false] {
+  opacity: 0.5;
+}
+
+.osjs-window[data-loading=true] {
+  pointer-events: none;
+}
+
+.osjs-window[data-loading=true]:after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=close] > div:before {
+  background: #e56c5c;
+  background: linear-gradient(180deg, #e56c5c 0, #f09c8d);
+}
+
+/* Add this in your existing CSS */
+.osjs-panel-item--clickable:hover img {
+  filter: brightness(0); /* This will turn the image darker */
+}
+
+.osjs-panel-item--clickable:hover {
+  background-color: #fff; /* Optional: If you also want to change the background on hover */
+  color: rgba(0, 0, 0, 0.9); /* Change the text color on hover */
+  box-shadow: 0 0 1em hsla(0, 0%, 100%, 0.5); /* Optional: Add a slight shadow effect on hover */
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=close]:active > div:before,
+.osjs-window[data-focused=true] .osjs-window-button[data-action=close]:hover > div:before {
+  background: #f09c8d;
+  background: linear-gradient(180deg, #f09c8d 0, #e56c5c);
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=maximize] > div:before {
+  background: #8dd22b;
+  background: linear-gradient(180deg, #8dd22b 0, #b1ec70);
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=maximize]:active > div:before,
+.osjs-window[data-focused=true] .osjs-window-button[data-action=maximize]:hover > div:before {
+  background: #b1ec70;
+  background: linear-gradient(180deg, #b1ec70 0, #8dd22b);
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=minimize] > div:before {
+  background: #f9c435;
+  background: linear-gradient(180deg, #f9c435 0, #fdd675);
+}
+
+.osjs-window[data-focused=true] .osjs-window-button[data-action=minimize]:active > div:before,
+.osjs-window[data-focused=true] .osjs-window-button[data-action=minimize]:hover > div:before {
+  background: #fdd675;
+  background: linear-gradient(180deg, #fdd675 0, #f9c435);
+}
+
+.osjs-window-title {
+  text-align: center;
+}
+
+.osjs-window-header {
+  padding: 0.5em;
+}
+
+.osjs-window-icon {
+  margin-right: 0.5em;
+}
+
+/* Specific styling for the context menu inside the panel */
+.osjs-panel.osjs__contextmenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  border: 1px solid #000000;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+}
+
+/* Styling for the context menu items */
+.osjs-panel.osjs__contextmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.osjs-panel.osjs__contextmenu li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.osjs-panel.osjs__contextmenu li:hover {
+  background-color: #555; /* Highlight items on hover */
+  color: #fff;
+}
+
+.osjs-panel {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.osjs-panel-item[data-name=windows] > div[data-focused=false] > * {
+  opacity: 0.5;
+}
+
+.osjs-panel-item--clickable {
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.osjs-panel-item--clickable:hover {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 1em hsla(0, 0%, 100%, 0.5);
+}
+
+.osjs-search-input {
+  border: 0;
+  background-color: #fff;
+}
+
+.osjs-search-result.osjs__active,
+.osjs-search-result:hover {
+  bottom: 0;
+}
+
+.osjs-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+
+.osjs-panel-item {
+  display: flex;
+  align-items: center;
+}
+
+.osjs-panel-item--clickable {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.osjs-panel-item--clickable:hover {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 1em hsla(0, 0%, 100%, 0.5);
+}
+
+.osjs-panel-item--clickable img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: filter 0.3s ease;
+}
+
+.osjs-panel-item--clickable:hover img {
+  filter: brightness(0);
+}
+
+.osjs-panel-item--clickable span {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.osjs-panel-item--icon img {
+  margin-right: 0.5em;
+}
+
+.osjs-panel-item[data-name=clock] {
+  margin-left: auto;
+}
+
+.osjs-panel.osjs__contextmenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  border: 1px solid #000000;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+}
+
+.osjs-panel.osjs__contextmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /*# sourceMappingURL=osjs.css.map*/

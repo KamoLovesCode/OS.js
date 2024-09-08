@@ -1,3 +1,43 @@
+/*!
+ * OS.js - JavaScript Cloud/Web Desktop Platform
+ *
+ * Copyright (c) 2011-2020, Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @author  Anders Evenrud <andersevenrud@gmail.com>
+ * @licence Simplified BSD License
+ */
+
+//
+// This is the client bootstrapping script.
+// This is where you can register service providers or set up
+// your libraries etc.
+//
+// https://manual.os-js.org/guide/provider/
+// https://manual.os-js.org/install/
+// https://manual.os-js.org/resource/official/
+//
+
 import {
   Core,
   CoreServiceProvider,
@@ -24,43 +64,9 @@ const init = () => {
   osjs.register(NotificationServiceProvider);
   osjs.register(SettingsServiceProvider, {before: true});
   osjs.register(AuthServiceProvider, {before: true});
-
-  // Register the PanelServiceProvider and set the menu at the bottom
-  osjs.register(PanelServiceProvider, {
-    position: 'bottom'  // Set the panel position to the bottom
-  });
-
+  osjs.register(PanelServiceProvider);
   osjs.register(DialogServiceProvider);
   osjs.register(GUIServiceProvider);
-
-  // Example of how to open a context menu at the bottom of the screen
-  const openContextMenu = (event) => {
-    const menu = osjs.make('osjs/contextmenu', {
-      position: {
-        left: event.clientX,      // Position it based on the click event’s X coordinate
-        top: window.innerHeight - event.clientY   // Position it relative to the bottom
-      },
-      menu: [
-        {label: 'Option 1', onclick: () => console.log('Clicked Option 1')},
-        {label: 'Option 2', onclick: () => console.log('Clicked Option 2')},
-        {
-          label: 'Sub Menu',
-          items: [
-            {label: 'Sub Item 1', onclick: () => console.log('Clicked Sub Item 1')},
-            {label: 'Sub Item 2', onclick: () => console.log('Clicked Sub Item 2')}
-          ]
-        }
-      ]
-    });
-
-    menu.show();
-  };
-
-  // Example event listener to trigger context menu
-  document.addEventListener('contextmenu', (event) => {
-    event.preventDefault(); // Prevent the default context menu
-    openContextMenu(event); // Open your custom context menu
-  });
 
   osjs.boot();
 };
