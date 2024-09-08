@@ -229,46 +229,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _osjs_dialogs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_osjs_dialogs__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.js */ "./src/client/config.js");
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index.scss */ "./src/client/index.scss");
-/*!
- * OS.js - JavaScript Cloud/Web Desktop Platform
- *
- * Copyright (c) 2011-2020, Anders Evenrud <andersevenrud@gmail.com>
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- *    list of conditions and the following disclaimer
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @author  Anders Evenrud <andersevenrud@gmail.com>
- * @licence Simplified BSD License
- */
-
-//
-// This is the client bootstrapping script.
-// This is where you can register service providers or set up
-// your libraries etc.
-//
-// https://manual.os-js.org/guide/provider/
-// https://manual.os-js.org/install/
-// https://manual.os-js.org/resource/official/
-//
-
 
 
 
@@ -289,9 +249,55 @@ var init = function init() {
   osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__["AuthServiceProvider"], {
     before: true
   });
-  osjs.register(_osjs_panels__WEBPACK_IMPORTED_MODULE_1__["PanelServiceProvider"]);
+
+  // Register the PanelServiceProvider and set the menu at the bottom
+  osjs.register(_osjs_panels__WEBPACK_IMPORTED_MODULE_1__["PanelServiceProvider"], {
+    position: 'bottom' // Set the panel position to the bottom
+  });
   osjs.register(_osjs_dialogs__WEBPACK_IMPORTED_MODULE_3__["DialogServiceProvider"]);
   osjs.register(_osjs_gui__WEBPACK_IMPORTED_MODULE_2__["GUIServiceProvider"]);
+
+  // Example of how to open a context menu at the bottom of the screen
+  var openContextMenu = function openContextMenu(event) {
+    var menu = osjs.make('osjs/contextmenu', {
+      position: {
+        left: event.clientX,
+        // Position it based on the click event’s X coordinate
+        top: window.innerHeight - event.clientY // Position it relative to the bottom
+      },
+      menu: [{
+        label: 'Option 1',
+        onclick: function onclick() {
+          return console.log('Clicked Option 1');
+        }
+      }, {
+        label: 'Option 2',
+        onclick: function onclick() {
+          return console.log('Clicked Option 2');
+        }
+      }, {
+        label: 'Sub Menu',
+        items: [{
+          label: 'Sub Item 1',
+          onclick: function onclick() {
+            return console.log('Clicked Sub Item 1');
+          }
+        }, {
+          label: 'Sub Item 2',
+          onclick: function onclick() {
+            return console.log('Clicked Sub Item 2');
+          }
+        }]
+      }]
+    });
+    menu.show();
+  };
+
+  // Example event listener to trigger context menu
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault(); // Prevent the default context menu
+    openContextMenu(event); // Open your custom context menu
+  });
   osjs.boot();
 };
 window.addEventListener('DOMContentLoaded', function () {
