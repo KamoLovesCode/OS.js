@@ -20,7 +20,7 @@ const osjs = new Core(config, {});
 // LiveReload Setup
 const livereload = require('livereload');
 const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(__dirname + "/public"); // Assuming your CSS is in the 'public' directory
+liveReloadServer.watch(__dirname + "/dist"); // Assuming your CSS is in the 'public' directory
 
 const connectLiveReload = require('connect-livereload');
 const express = require('express');

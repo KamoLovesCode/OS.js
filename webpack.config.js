@@ -1,5 +1,5 @@
 const path = require('path');
-const mode = process.env.NODE_ENV || 'production';
+const mode = process.env.NODE_ENV || 'development';
 const minimize = mode === 'production';
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -43,7 +43,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/client/index.ejs'),
       favicon: path.resolve(__dirname, 'src/client/favicon.png'),
-      title: 'OS.js'
+      title: 'Kamogelo mosia | OS'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
