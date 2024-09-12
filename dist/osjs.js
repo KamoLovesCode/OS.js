@@ -1,2 +1,262 @@
-!function(e){function r(r){for(var o,s,u=r[0],a=r[1],c=r[2],f=0,d=[];f<u.length;f++)s=u[f],Object.prototype.hasOwnProperty.call(n,s)&&n[s]&&d.push(n[s][0]),n[s]=0;for(o in a)Object.prototype.hasOwnProperty.call(a,o)&&(e[o]=a[o]);for(l&&l(r);d.length;)d.shift()();return i.push.apply(i,c||[]),t()}function t(){for(var e,r=0;r<i.length;r++){for(var t=i[r],o=!0,u=1;u<t.length;u++){var a=t[u];0!==n[a]&&(o=!1)}o&&(i.splice(r--,1),e=s(s.s=t[0]))}return e}var o={},n={0:0},i=[];function s(r){if(o[r])return o[r].exports;var t=o[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,s),t.l=!0,t.exports}s.m=e,s.c=o,s.d=function(e,r,t){s.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},s.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},s.t=function(e,r){if(1&r&&(e=s(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(s.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var o in e)s.d(t,o,function(r){return e[r]}.bind(null,o));return t},s.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return s.d(r,"a",r),r},s.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},s.p="";var u=window.webpackJsonp=window.webpackJsonp||[],a=u.push.bind(u);u.push=r,u=u.slice();for(var c=0;c<u.length;c++)r(u[c]);var l=a;i.push([4,1]),t()}({4:function(e,r,t){"use strict";t.r(r);var o=t(0),n=t(1),i=t(2),s=t(3),u={auth:{login:{username:"demo",password:"demo"}}},a=function(){var e=new o.Core(u,{});e.register(o.CoreServiceProvider),e.register(o.DesktopServiceProvider),e.register(o.VFSServiceProvider),e.register(o.NotificationServiceProvider),e.register(o.SettingsServiceProvider,{before:!0}),e.register(o.AuthServiceProvider,{before:!0}),e.register(n.PanelServiceProvider),e.register(s.DialogServiceProvider),e.register(i.a);e.on("menu:click:settings",(function(){var r;(r=e,new Promise((function(e,t){r.make("osjs/dialogs").create({title:"Enter Password",message:"Please enter your password",input:{type:"password",placeholder:"Password"}},(function(r,o){"ok"===r&&"your_password"===o?e():t()}))}))).then((function(){e.run("Settings")})).catch((function(){e.dialog("Error",{message:"Incorrect password!"})}))})),e.boot()};window.addEventListener("DOMContentLoaded",(function(){return a()}))}});
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/client/config.js":
+/*!******************************!*\
+  !*** ./src/client/config.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  auth: {
+    login: {
+      username: 'demo',
+      password: 'demo'
+    }
+  },
+  // Automatically start specified applications
+  autostart: ['MyApplication' // Replace 'MyApplication' with the real name of your application
+  ]
+});
+
+/***/ }),
+
+/***/ "./src/client/index.js":
+/*!*****************************!*\
+  !*** ./src/client/index.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _osjs_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @osjs/client */ "./node_modules/@osjs/client/dist/main.js");
+/* harmony import */ var _osjs_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_osjs_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _osjs_panels__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @osjs/panels */ "./node_modules/@osjs/panels/dist/main.js");
+/* harmony import */ var _osjs_panels__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_osjs_panels__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _osjs_gui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @osjs/gui */ "./node_modules/@osjs/gui/dist/esm.js");
+/* harmony import */ var _osjs_dialogs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @osjs/dialogs */ "./node_modules/@osjs/dialogs/dist/main.js");
+/* harmony import */ var _osjs_dialogs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_osjs_dialogs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.js */ "./src/client/config.js");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index.scss */ "./src/client/index.scss");
+
+
+
+
+
+
+var init = function init() {
+  console.log("Initializing OS.js...");
+  var osjs = new _osjs_client__WEBPACK_IMPORTED_MODULE_0__.Core(_config_js__WEBPACK_IMPORTED_MODULE_4__["default"], {});
+
+  // Register your service providers
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.CoreServiceProvider);
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.DesktopServiceProvider);
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.VFSServiceProvider);
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.NotificationServiceProvider);
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.SettingsServiceProvider, {
+    before: true
+  });
+  osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_0__.AuthServiceProvider, {
+    before: true
+  });
+  osjs.register(_osjs_panels__WEBPACK_IMPORTED_MODULE_1__.PanelServiceProvider);
+  osjs.register(_osjs_dialogs__WEBPACK_IMPORTED_MODULE_3__.DialogServiceProvider);
+  osjs.register(_osjs_gui__WEBPACK_IMPORTED_MODULE_2__.GUIServiceProvider);
+  console.log("Service providers registered.");
+  osjs.boot().then(function () {
+    console.log("OS.js boot complete.");
+
+    // Automatically launch MyApplication after OS.js boots
+    osjs.run('MyApplication');
+  })["catch"](function (err) {
+    console.error("Error during OS.js boot:", err);
+  });
+};
+window.addEventListener('DOMContentLoaded', function () {
+  init();
+});
+
+/***/ }),
+
+/***/ "./src/client/index.scss":
+/*!*******************************!*\
+  !*** ./src/client/index.scss ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"osjs": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk_osjs_osjs"] = self["webpackChunk_osjs_osjs"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_osjs_client_dist_main_js-node_modules_osjs_dialogs_dist_main_js-node_mod-b6656e"], () => (__webpack_require__("./src/client/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
 //# sourceMappingURL=osjs.js.map

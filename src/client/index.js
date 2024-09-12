@@ -15,8 +15,10 @@ import config from './config.js';
 import './index.scss';
 
 const init = () => {
-  const osjs = new Core(config, {});
+  console.log("Initializing OS.js...");
 
+  const osjs = new Core(config, {});
+  
   // Register your service providers
   osjs.register(CoreServiceProvider);
   osjs.register(DesktopServiceProvider);
@@ -27,36 +29,21 @@ const init = () => {
   osjs.register(PanelServiceProvider);
   osjs.register(DialogServiceProvider);
   osjs.register(GUIServiceProvider);
+  
+  console.log("Service providers registered.");
 
-  // Function to prompt for password
-  const showPasswordDialog = (core) => {
-    return new Promise((resolve, reject) => {
-      core.make('osjs/dialogs').create({
-        title: 'Enter Password',
-        message: 'Please enter your password',
-        input: {type: 'password', placeholder: 'Password'}
-      }, (btn, value) => {
-        if (btn === 'ok' && value === 'your_password') {
-          resolve(); // Password is correct
-        } else {
-          reject(); // Incorrect password
-        }
-      });
+  osjs.boot()
+    .then(() => {
+      console.log("OS.js boot complete.");
+
+      // Automatically launch MyApplication after OS.js boots
+      osjs.run('MyApplication');
+    })
+    .catch((err) => {
+      console.error("Error during OS.js boot:", err);
     });
-  };
-
-  // Handle settings click
-  osjs.on('menu:click:settings', () => {
-    showPasswordDialog(osjs)
-      .then(() => {
-        osjs.run('Settings'); // Open settings app
-      })
-      .catch(() => {
-        osjs.dialog('Error', {message: 'Incorrect password!'});
-      });
-  });
-
-  osjs.boot();
 };
 
-window.addEventListener('DOMContentLoaded', () => init());
+window.addEventListener('DOMContentLoaded', () => {
+  init();
+});

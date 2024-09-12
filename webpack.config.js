@@ -4,21 +4,9 @@ const minimize = mode === 'production';
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {DefinePlugin} = webpack;
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { DefinePlugin } = webpack;
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const npm = require('./package.json');
-const plugins = [];
-
-if (mode === 'production') {
-  plugins.push(new OptimizeCSSAssetsPlugin({
-    cssProcessorOptions: {
-      discardComments: true,
-      map: {
-        inline: false
-      }
-    },
-  }));
-}
 
 module.exports = {
   mode,
@@ -32,6 +20,19 @@ module.exports = {
   },
   optimization: {
     minimize,
+    minimizer: [
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+              map: { inline: false } // Source maps configuration
+            }
+          ]
+        }
+      })
+    ],
     splitChunks: {
       chunks: 'all'
     }
@@ -43,31 +44,26 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/client/index.ejs'),
       favicon: path.resolve(__dirname, 'src/client/favicon.png'),
-      title: 'Kamogelo mosia | OS'
+      title: 'OS.js'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    }),
-    ...plugins
+    })
   ],
   module: {
     rules: [
       {
-        test: /\.(svg|png|jpe?g|gif|webp)$/,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
+        test: /\.(svg|png|jpe?g|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        include: /typeface/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: 'fonts/[name].[ext]'
-          }
+        test: /\.(eot|svg|ttf|woff|woff2)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
         }
       },
       {
