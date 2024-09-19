@@ -300,7 +300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_styles_logo_blue_32x32_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./src/styles/logo-blue-32x32.png */ "./src/client/src/styles/logo-blue-32x32.png");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "icon", function() { return _src_styles_logo_blue_32x32_png__WEBPACK_IMPORTED_MODULE_28__["default"]; });
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _osjs_client__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @osjs/client */ "./node_modules/@osjs/client/dist/main.js");
+/* harmony import */ var _osjs_client__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_osjs_client__WEBPACK_IMPORTED_MODULE_29__);
 /* harmony import */ var _osjs_panels__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @osjs/panels */ "./node_modules/@osjs/panels/dist/main.js");
 /* harmony import */ var _osjs_panels__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_osjs_panels__WEBPACK_IMPORTED_MODULE_30__);
 /* harmony import */ var _osjs_gui__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @osjs/gui */ "./node_modules/@osjs/gui/dist/esm.js");
@@ -378,17 +379,17 @@ __webpack_require__.r(__webpack_exports__);
 // Prevent double booting by ensuring `init` is only called once
 if (!window.osjsBooted) {
   const init = () => {
-    const osjs = new !(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_config_js__WEBPACK_IMPORTED_MODULE_33__["default"], {});
+    const osjs = new _osjs_client__WEBPACK_IMPORTED_MODULE_29__["Core"](_config_js__WEBPACK_IMPORTED_MODULE_33__["default"], {});
 
     // Register service providers
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["CoreServiceProvider"]);
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["DesktopServiceProvider"]);
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["VFSServiceProvider"]);
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["NotificationServiceProvider"]);
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["SettingsServiceProvider"], {
       before: true
     });
-    osjs.register(!(function webpackMissingModule() { var e = new Error("Cannot find module '@osjs/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+    osjs.register(_osjs_client__WEBPACK_IMPORTED_MODULE_29__["AuthServiceProvider"], {
       before: true
     });
     osjs.register(_osjs_panels__WEBPACK_IMPORTED_MODULE_30__["PanelServiceProvider"]);
@@ -3138,7 +3139,7 @@ const defaultConfiguration = {
         'close-window': 'shift+alt+w'
       },
       notifications: {
-        position: 'top-right'
+        position: 'bottom-right'
       },
       background: {
         src: _styles_wallpaper_png__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -7200,114 +7201,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @osjs/event-emitter */ "./src/client/node_modules/@osjs/event-emitter/dist/main.js");
 /* harmony import */ var _osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _adapters_ui_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./adapters/ui/login */ "./src/client/src/adapters/ui/login.js");
-/*
- * OS.js - JavaScript Cloud/Web Desktop Platform
- *
- * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- *    list of conditions and the following disclaimer
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @author  Anders Evenrud <andersevenrud@gmail.com>
- * @license Simplified BSD License
- */
+/* harmony import */ var _styles_logo_blue_32x32_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/logo-blue-32x32.png */ "./src/client/src/styles/logo-blue-32x32.png");
 
 
-
-/**
- * Login Options
- *
- * @typedef {Object} LoginOptions
- * @property {string} [title] Title
- * @property {object[]} [fields] Fields
- */
+// Import the logo image so Webpack processes it
+ // Adjust based on actual file location
+// Adjust the path as per your folder structure
 
 /**
  * OS.js Login UI
  */
 class Login extends _osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"] {
-  /**
-   * Create authentication handler
-   *
-   * @param {Core} core Core reference
-   * @param {LoginOptions} [options] Options
-   */
   constructor(core, options) {
     super('Login');
-
-    /**
-     * Login root DOM element
-     * @type {Element}
-     */
     this.$container = null;
-
-    /**
-     * Core instance reference
-     * @type {Core}
-     * @readonly
-     */
     this.core = core;
-
-    /**
-     * Login options
-     * TODO: typedef
-     * @type {Object}
-     * @readonly
-     */
     this.options = {
       id: 'osjs-login',
-      title: 'Welcome to OS.js',
+      title: 'AISOM',
       stamp: core.config('version'),
       logo: {
         position: 'top',
-        src: null
+        src: _styles_logo_blue_32x32_png__WEBPACK_IMPORTED_MODULE_2__["default"] // Use the imported logo path here
       },
       fields: [{
         tagName: 'input',
         attributes: {
           name: 'username',
           type: 'text',
-          placeholder: 'Username'
-        }
-      }, {
-        tagName: 'input',
-        attributes: {
-          name: 'password',
-          type: 'password',
-          placeholder: 'Password'
-        }
-      }, {
-        tagName: 'input',
-        attributes: {
-          type: 'submit',
-          value: 'Login'
+          placeholder: 'Enter your name'
         }
       }],
       ...options
     };
   }
-
-  /**
-   * Initializes the UI
-   */
   init(startHidden) {
     this.$container = document.createElement('div');
     this.$container.id = this.options.id;
@@ -7316,10 +7243,6 @@ class Login extends _osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0__["EventEmitt
     this.core.$root.appendChild(this.$container);
     this.render(startHidden);
   }
-
-  /**
-   * Destroys the UI
-   */
   destroy() {
     this.core.$root.classList.remove('login');
     if (this.$container) {
@@ -7328,13 +7251,43 @@ class Login extends _osjs_event_emitter__WEBPACK_IMPORTED_MODULE_0__["EventEmitt
     }
     super.destroy();
   }
-
-  /**
-   * Renders the UI
-   */
   render(startHidden) {
     const login = this.core.config('auth.login', {});
     const ui = Object(_adapters_ui_login__WEBPACK_IMPORTED_MODULE_1__["default"])(this.options, login, startHidden, this.$container);
+
+    // Create logo element
+    const logo = document.createElement('img');
+    logo.src = this.options.logo.src;
+    logo.className = 'login-logo';
+    this.$container.appendChild(logo);
+
+    // Create username input field
+    const usernameInput = document.createElement('input');
+    usernameInput.type = 'text';
+    usernameInput.placeholder = 'Enter your name';
+    usernameInput.name = 'username';
+    this.$container.appendChild(usernameInput);
+
+    // Create next button with an inline SVG right arrow
+    const nextButton = document.createElement('button');
+    nextButton.className = 'next-button'; // Custom style class
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("viewBox", "0 0 24 24");
+    icon.setAttribute("width", "24");
+    icon.setAttribute("height", "24");
+    icon.innerHTML = `<path d="M12 2l10 10-10 10L2 12z"/>`;
+    nextButton.appendChild(icon);
+    this.$container.appendChild(nextButton);
+
+    // Add event listener for "next" action
+    nextButton.addEventListener('click', () => {
+      const username = usernameInput.value;
+      if (username) {
+        this.emit('login:post', {
+          username
+        });
+      }
+    });
     ui.on('register:post', values => this.emit('register:post', values));
     ui.on('login:post', values => this.emit('login:post', values));
     this.on('login:start', () => ui.emit('login:start'));
@@ -10007,7 +9960,7 @@ class Splash {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "881c86876af63b732063d7bdd51bb226.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "91d54bbed41c7a9798422fd211faa310.png");
 
 /***/ }),
 
@@ -10020,7 +9973,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "f4cfc6708cf6bfc17d4b1e775f594ae2.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "367ddce5a59985c6a51f44a658aa4495.png");
 
 /***/ }),
 
