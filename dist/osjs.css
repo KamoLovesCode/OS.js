@@ -1,32 +1,9 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap);
 @charset "UTF-8";
-/*!
+/*! 
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) Anders Evenrud <andersevenrud@gmail.com>
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- *    list of conditions and the following disclaimer
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @author  Anders Evenrud <andersevenrud@gmail.com>
- * @license Simplified BSD License
+ * Copyright (c) Anders Evenrud
  */
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
@@ -101,7 +78,7 @@
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-image: url(f4cfc6708cf6bfc17d4b1e775f594ae2.png);
+  background-image: url(367ddce5a59985c6a51f44a658aa4495.png);
   position: fixed;
   top: 0;
   left: 0;
@@ -253,7 +230,7 @@
 .osjs-window-icon > div {
   width: 1em;
   height: 1em;
-  background: url(881c86876af63b732063d7bdd51bb226.png) no-repeat 50% 50%;
+  background: url(91d54bbed41c7a9798422fd211faa310.png) no-repeat 50% 50%;
   background-size: cover;
   cursor: pointer;
 }
@@ -803,6 +780,11 @@
   overflow: visible;
   height: auto;
   overflow-wrap: break-word;
+}
+
+body, .your-class {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600; /* Semi-bold */
 }
 
 /*# sourceMappingURL=osjs.css.map*/

@@ -217,7 +217,7 @@ export const defaultConfiguration = {
         'close-window': 'shift+alt+w'
       },
       notifications: {
-        position: 'top-right'
+        position: 'bottom-right'
       },
       background: {
         src: defaultWallpaper,
